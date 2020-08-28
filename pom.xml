@@ -272,7 +272,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.2.0</version>
                 <configuration>
-                    <imageName>obsidiandynamics/kafdrop</imageName>
+                    <imageName>accso/kafdrop</imageName>
                     <forceTags>true</forceTags>
                     <dockerDirectory>${project.build.directory}/docker-ready</dockerDirectory>
                     <imageTags>
