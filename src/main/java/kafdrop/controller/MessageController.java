@@ -194,7 +194,10 @@ public final class MessageController {
       return MessageFormat.PROTOBUF;
     } else if ("MSGPACK".equalsIgnoreCase(format)){
       return MessageFormat.MSGPACK;
-    } else {
+    } else if ("B64COMPRESS".equalsIgnoreCase(format)){
+      return MessageFormat.B64COMPRESS;
+    }
+    else {
       return MessageFormat.DEFAULT;
     }
   }
@@ -272,7 +275,9 @@ public final class MessageController {
       deserializer = new ProtobufMessageDeserializer(topicName, fullDescFile, msgTypeName);
     } else if (format == MessageFormat.MSGPACK) {
       deserializer = new MsgPackMessageDeserializer();
-    } else {
+    } else if (format == MessageFormat.B64COMPRESS) {
+      deserializer = new B64CompressDeserializer();
+    }else {
       deserializer = new DefaultMessageDeserializer();
     }
 
